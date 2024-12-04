@@ -1,0 +1,232 @@
+:root {
+    --background: #101012;
+    --white: #e8e8e8;
+    --gray: #3e3e3e;
+    --background-section: #22262b9e;
+    --border-section: rgba(148, 146, 146, 0.200);
+    --background-hover-nav: rgba(47, 47, 47, 0.5);
+    --border-habilidades: linear-gradient(90deg, #7b2ff7, #f107a3);
+
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Lora", serif;
+    color: var(--white);
+    background-color: #101012;
+    overflow-x: hidden;
+    /* Evita el scroll horizontal */
+    width: 100%;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Asegura que el ancho sea el 100% de la pantalla */
+    height: 90px;
+    background: rgba(255, 255, 255, 0.034);
+    border-bottom: 1px solid var(--border-section);
+    box-shadow: 0px 0px 30px rgba(62, 62, 62, 0.537);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    display: flex;
+    font-size: 18px;
+    font-family: "Lora", serif;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin-right: 50px;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 0px 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+nav li:hover {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: var(--background-hover-nav);
+    transform: scale(1.05);
+}
+
+.container {
+    width: 100%;
+    height: auto;
+    padding: 8rem 1rem 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra el contenido horizontalmente */
+}
+
+.resolution-container {
+    max-width: 865px;
+    width: 100%;
+    /* Asegura que no exceda el ancho de la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Centra horizontalmente */
+}
+
+.resolution-container .contenido {
+    align-self: flex-start;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 5px;
+    margin-top: 40px;
+}
+
+.contenido path {
+    fill: #e8e8e8;
+}
+
+.principal-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.principal-container img {
+    height: 220px;
+    border-radius: 38%;
+    border: 3px solid var(--white);
+    padding: 2px;
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.principal-container h2 {
+    font-size: 34px;
+    margin: 25px;
+}
+
+.principal-container span {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5;
+    letter-spacing: 1px;
+}
+
+
+.secondary-container {
+    background-color: var(--background-section);
+    border: 1px solid var(--border-section);
+    border-radius: 10px;
+    margin: 1rem 2rem 0 2rem;
+    padding: 1rem;
+    width: 100%;
+    box-shadow: 0px 0px 10px rgba(62, 62, 62, 0.537);
+    overflow: visible;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.secondary-container h3{
+    margin-left: 15px;
+    margin-top: 10px;
+}
+.contenedor-padre{
+    display: flex;
+    gap: 18px;
+    overflow: visible;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    margin-left: 3px;
+    padding: 20px 10px 20px 10px; 
+}
+
+.secondary-container div {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.contenedor-habilidad {
+    border: 4px solid ;
+    background-color: var(--background);
+    padding: 12px;
+    border-radius: 15px;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+
+/* Estilos responsivos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        padding: 4rem 1rem 2rem 1rem;
+    }
+
+    .resolution-container {
+        padding: 1rem;
+    }
+
+    .principal-container img {
+        height: 150px;
+        /* Imagen más pequeña */
+        margin-top: 20px;
+    }
+
+    .principal-container h2 {
+        font-size: 28px;
+        /* Texto más pequeño */
+    }
+
+    .principal-container span {
+        font-size: 16px;
+    }
+}
+
+
+
+
+/* .content-container {
+    height: auto;
+    max-width: 860px;
+    margin: 0 auto;
+    margin-top: 40px;
+
+}
+.content-container .content{
+    background-color: var(--background-section);
+    margin-top: 10px;
+    border: 1px solid var(--border-section);
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+} */
