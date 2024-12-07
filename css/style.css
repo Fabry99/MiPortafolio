@@ -61,8 +61,8 @@ nav {
     justify-content: center;
     align-items: center;
 }
-.nav-container svg{
-    display: none;
+#bars{
+   display: none;
 }
 
 #navbar{
