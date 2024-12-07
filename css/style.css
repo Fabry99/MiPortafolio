@@ -39,7 +39,6 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    /* Asegura que el ancho sea el 100% de la pantalla */
     height: 90px;
     background: rgba(255, 255, 255, 0.034);
     border-bottom: 1px solid var(--border-section);
@@ -50,22 +49,28 @@ nav {
     font-size: 18px;
     font-family: "Lora", serif;
     z-index: 1000;
+    align-items: center;
 }
 
 .nav-container {
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: center;
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 865px;
+    justify-content: center;
+    align-items: center;
+}
+.nav-container svg{
+    display: none;
 }
 
-nav ul {
+#navbar{
     display: flex;
     list-style: none;
     margin-right: 50px;
     align-items: center;
+   
 }
 
 nav ul li {
@@ -198,10 +203,59 @@ nav li:hover {
     align-items: center;
     margin-bottom: 15px;
 }
-
+#navbar.show {
+    display: block; /* Hace visible el navbar */
+    opacity: 1; /* Lo hace completamente visible */
+    transition: visibility 0s 0s, opacity 0.3s ease; /* Transición suave */
+}
 
 /* Estilos responsivos para pantallas pequeñas */
 @media (max-width: 768px) {
+    .nav-container{
+        justify-content: end;
+        align-items: center;
+        top: 90px;
+        box-shadow: 0px 0px 0px rgb(0, 0, 0);
+    }
+    #bars{
+        position: fixed;
+        display: block;
+        margin-right: 30px;
+        cursor: pointer;
+        right: 0;
+
+    }
+    #navbar li{
+        padding: 10px;
+        margin: 6px;
+    }
+    #navbar {
+        background: #18181ae3;
+        border-bottom: 1px solid var(--border-section);
+        box-shadow: 0px 2px 10px  rgba(62, 62, 62, 0.537);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        display: none; 
+        position: fixed; /* Fijo en la pantalla */
+        top: 90px; /* Colocado debajo de la barra de navegación */
+        left: 0; /* Alineado al borde izquierdo */
+        width: 100vw; /* Asegura que el navbar ocupe el 100% del ancho de la pantalla */
+        margin-top: 0; /* Elimina cualquier margen superior no deseado */
+        height: auto; /* Ajuste automático de la altura */
+        z-index: 999; /* Asegura que el navbar quede encima de otros elementos */
+        transition: transform 0.3s ease; 
+    }
+    nav li:hover {
+        padding: 10px;
+        border-radius: 10px;
+        background-color: var(--background-hover-nav);
+        transform: scale(1);
+    }
+    
+    
+
+    
+
     .container {
         padding: 4rem 1rem 2rem 1rem;
     }
