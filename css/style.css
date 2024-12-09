@@ -7,8 +7,8 @@
     --background-hover-nav: rgba(47, 47, 47, 0.5);
     --border-habilidades: linear-gradient(90deg, #7b2ff7, #f107a3);
     --shadow-habilidades: rgba(72, 72, 72, 0.374);
-    --shadow-button-regresar:rgba(173, 173, 173, 0.211);
-    --hover-button-regresar:linear-gradient(125deg, rgb(88, 80, 143) 20%, rgb(17, 19, 135) 100%);
+    --shadow-button-regresar: rgba(173, 173, 173, 0.211);
+    --hover-button-regresar: linear-gradient(125deg, rgb(88, 80, 143) 20%, rgb(17, 19, 135) 100%);
 
 }
 
@@ -61,16 +61,17 @@ nav {
     justify-content: center;
     align-items: center;
 }
-#bars{
-   display: none;
+
+#bars {
+    display: none;
 }
 
-#navbar{
+#navbar {
     display: flex;
     list-style: none;
     margin-right: 50px;
     align-items: center;
-   
+
 }
 
 nav ul li {
@@ -96,17 +97,14 @@ nav li:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centra el contenido horizontalmente */
 }
 
 .resolution-container {
     max-width: 865px;
     width: 100%;
-    /* Asegura que no exceda el ancho de la pantalla */
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Centra horizontalmente */
 }
 
 .resolution-container .contenido {
@@ -115,6 +113,7 @@ nav li:hover {
     display: flex;
     gap: 5px;
     margin-top: 40px;
+
 }
 
 .contenido path {
@@ -203,21 +202,120 @@ nav li:hover {
     align-items: center;
     margin-bottom: 15px;
 }
+
 #navbar.show {
-    display: block; /* Hace visible el navbar */
-    opacity: 1; /* Lo hace completamente visible */
-    transition: visibility 0s 0s, opacity 0.3s ease; /* Transición suave */
+    display: block;
+    opacity: 1;
+    transition: visibility 0s 0s, opacity 0.3s ease;
 }
 
-/* Estilos responsivos para pantallas pequeñas */
+.carousel-container{
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px 0px;
+}
+.carousel{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+    width: 100%;
+}
+.carousel-item{
+    background: rgba(255, 255, 255, 0.034);
+    border: 1px solid var(--border-section);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-radius: 20px;
+    border: 1px solid var(--border-section);
+    flex: 0 0 100%;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+    padding: 20px;
+    justify-content: center;
+    justify-items: center;
+}
+.carousel-item img{
+    width: 95%;
+    max-height: 80%;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.contenido-texto{
+    width: 95%;
+    height: auto;
+    margin-top: -50px;
+    color: var(--white);
+}
+.contenido-texto p{
+    margin-top: 10px;
+    color: var(--white);
+    line-height: 1.7;
+}
+.carousel-item h3{
+    margin-top: 25px;
+}
+.language-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: end;
+}
+.language-container img{
+    width: 48px;
+    height: 48px;
+}
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+
+.carousel-btn.prev {
+    left: 20px;
+}
+
+.carousel-btn.next {
+    right: 20px;
+}
+
+
+
 @media (max-width: 768px) {
-    .nav-container{
+    .nav-container {
         justify-content: end;
         align-items: center;
         top: 90px;
         box-shadow: 0px 0px 0px rgb(0, 0, 0);
     }
-    #bars{
+
+    #bars {
         position: fixed;
         display: block;
         margin-right: 30px;
@@ -230,33 +328,36 @@ nav li:hover {
         height: 50px;
 
     }
-    #navbar li{
+
+    #navbar li {
         padding: 10px;
         margin: 6px;
     }
+
     #navbar {
         background: #18181ae3;
         border-bottom: 1px solid var(--border-section);
-        box-shadow: 0px 2px 10px  rgba(62, 62, 62, 0.537);
+        box-shadow: 0px 2px 10px rgba(62, 62, 62, 0.537);
         backdrop-filter: blur(5px);
         -webkit-backdrop-filter: blur(5px);
-        display: none; 
-        position: fixed; /* Fijo en la pantalla */
-        top: 90px; /* Colocado debajo de la barra de navegación */
-        left: 0; /* Alineado al borde izquierdo */
-        width: 100vw; /* Asegura que el navbar ocupe el 100% del ancho de la pantalla */
-        margin-top: 0; /* Elimina cualquier margen superior no deseado */
-        height: auto; /* Ajuste automático de la altura */
-        z-index: 999; /* Asegura que el navbar quede encima de otros elementos */
-        transition: transform 0.3s ease; 
+        display: none;
+        position: fixed;
+        top: 90px;
+        left: 0;
+        width: 100vw;
+        margin-top: 0;
+        height: auto;
+        z-index: 999;
+        transition: transform 0.3s ease;
     }
+
     nav li:hover {
         padding: 10px;
         border-radius: 10px;
         background-color: var(--background-hover-nav);
         transform: scale(1);
     }
-    
+
 
     .container {
         padding: 4rem 1rem 2rem 1rem;
@@ -268,23 +369,22 @@ nav li:hover {
 
     .principal-container img {
         height: 150px;
-        /* Imagen más pequeña */
         margin-top: 20px;
     }
 
     .principal-container h2 {
         font-size: 28px;
-        /* Texto más pequeño */
     }
 
     .principal-container span {
         font-size: 16px;
     }
+
 }
 
 #scrollToTopBtn {
     padding: 0px 15px 5px 15px;
-    background: linear-gradient(150deg, #000000 20%,#2e2e2e 100%);
+    background: linear-gradient(150deg, #000000 20%, #2e2e2e 100%);
     border-radius: 10%;
     align-items: center;
     justify-content: center;
@@ -298,7 +398,7 @@ nav li:hover {
     display: none;
     font-size: 32px;
     box-shadow: 0 4px 8px var(--shadow-button-regresar);
-    
+
 }
 
 /* Cambiar color cuando el usuario pasa el mouse por encima */
