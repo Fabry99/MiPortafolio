@@ -225,6 +225,7 @@ nav li:hover {
     transition: transform 0.5s ease-in-out;
     height: 100%;
     width: 100%;
+    will-change: transform;
 }
 .carousel-item{
     background: rgba(255, 255, 255, 0.034);
@@ -243,7 +244,7 @@ nav li:hover {
 }
 .carousel-item img{
     width: 95%;
-    max-height: 80%;
+    max-height: 95%;
     object-fit: cover;
     border-radius: 10px;
     margin-top: 30px;
@@ -252,7 +253,7 @@ nav li:hover {
 .contenido-texto{
     width: 95%;
     height: auto;
-    margin-top: -50px;
+    margin-top: -30px;
     color: var(--white);
 }
 .contenido-texto p{
@@ -304,7 +305,28 @@ nav li:hover {
 .carousel-btn.next {
     right: 20px;
 }
+/* Indicadores */
+.carousel-indicators {
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 4px;
+}
 
+.carousel-indicators div {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.carousel-indicators .active {
+    background-color: white;
+}
 
 
 @media (max-width: 768px) {
@@ -378,6 +400,9 @@ nav li:hover {
 
     .principal-container span {
         font-size: 16px;
+    }
+    .carousel-btn {
+        display: none;
     }
 
 }

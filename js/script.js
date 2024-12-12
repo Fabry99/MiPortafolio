@@ -119,4 +119,53 @@ indicators.addEventListener('click', (e) => {
     startAutoSlide();
   }
 });
-// startAutoSlide();
+
+let startX = 0;
+let currentX = 0;
+let isDragging = false;
+
+// Inicia el deslizamiento
+carousel.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+});
+
+// Detecta el movimiento
+carousel.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    currentX = e.touches[0].clientX - startX;
+    carousel.style.transform = `translateX(${currentX}px)`;
+});
+
+// Termina el deslizamiento
+carousel.addEventListener('touchend', () => {
+    isDragging = false;
+
+    // Determina si fue un deslizamiento válido
+    if (currentX > 50) {
+        moveSlide('prev');
+    } else if (currentX < -50) {
+        moveSlide('next');
+    }
+
+    // Restaura la posición inicial
+    carousel.style.transform = '';
+});
+
+// Función para mover el carrusel
+function moveSlide(direction) {
+    const items = document.querySelectorAll('.carousel-item');
+    const activeItem = document.querySelector('.carousel-item.active');
+    let newIndex = Array.from(items).indexOf(activeItem);
+
+    if (direction === 'prev') {
+        newIndex = (newIndex - 1 + items.length) % items.length;
+    } else if (direction === 'next') {
+        newIndex = (newIndex + 1) % items.length;
+    }
+
+    items.forEach(item => item.classList.remove('active'));
+    items[newIndex].classList.add('active');
+}
+
+ startAutoSlide();
